@@ -383,6 +383,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else
             {
+                System.out.println("size "+imageBitmap.getWidth());
                 Frame frame = new Frame.Builder().setBitmap(imageBitmap).build();
                 faces = faceDetector.detect(frame);
                 faceDetector.release();
@@ -392,6 +393,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,"No face found",Toast.LENGTH_SHORT).show();
                 return null;
             }
+            System.out.println("size "+String.valueOf(faces.size()));
             Face detectedFace = faces.valueAt(0);
             return Bitmap.createBitmap(imageBitmap,
                     (int)detectedFace.getPosition().x,
